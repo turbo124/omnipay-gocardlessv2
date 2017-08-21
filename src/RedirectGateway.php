@@ -9,6 +9,26 @@ class RedirectGateway extends AbstractGateway
      *
      * @return Message\RedirectAuthoriseRequest|Message\AbstractRequest|RedirectGateway
      */
+    public function purchase(array $parameters = [])
+    {
+        return $this->createRequest(Message\RedirectAuthoriseRequest::class, $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     *
+     * @return Message\RedirectCompleteAuthoriseRequest|Message\AbstractRequest|RedirectGateway
+     */
+    public function completePurchase(array $parameters = [])
+    {
+        return $this->createRequest(Message\RedirectCompleteAuthoriseRequest::class, $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     *
+     * @return Message\RedirectAuthoriseRequest|Message\AbstractRequest|RedirectGateway
+     */
     public function authoriseRequest(array $parameters = [])
     {
         return $this->createRequest(Message\RedirectAuthoriseRequest::class, $parameters);
