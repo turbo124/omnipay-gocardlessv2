@@ -11,7 +11,11 @@ class RedirectGateway extends AbstractGateway
      */
     public function purchase(array $parameters = [])
     {
-        return $this->createRequest(Message\RedirectAuthoriseRequest::class, $parameters);
+        if (isset($parameters['card'])) {
+            return $this->authoriseRequest($parameters);
+        } else {
+            return $this->createPayment($parameters);
+        }
     }
 
     /**
@@ -21,7 +25,7 @@ class RedirectGateway extends AbstractGateway
      */
     public function completePurchase(array $parameters = [])
     {
-        return $this->createRequest(Message\RedirectCompleteAuthoriseRequest::class, $parameters);
+        return $this->completeAuthoriseRequest($parameters);
     }
 
     /**
