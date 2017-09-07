@@ -124,6 +124,7 @@ abstract class AbstractGateway extends BaseAbstractGateway
     {
         return [
             'accessToken' => '',
+            'webhookSecret' => '',
             'testMode' => true,
         ];
     }
